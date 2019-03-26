@@ -35,27 +35,31 @@ if %option%==update ECHO update at https://github.com/sleepercreeper1/BatchGames
 
 :tetris
 
-color 7C
+
 
 setlocal EnableDelayedExpansion
 
 if "%~1" neq "" goto %1
+
+title Tetris.bat
+
+color 84
 
 rem Delete the next line when Bitmap font 16x8 is used
 set "F16x8=REM"
 
 cls
 echo/
-echo === Tetris by Luke  ===
+echo ===  Pure .BATch-file Tetris game by Luke  ===
 echo/
 echo/
 echo Tetris pieces are controlled with WASD
-
-echo Press P to p ause the game; press N to end game
 echo/
+echo Press P to pause the game; press N to end game
 echo/
-
-
+echo YOU NEED TO PRESS ENTER ONCE WHEN THE GAME BEGINS
+pause
+cls
 
 rem Field dimensions
 set /A cols=10, lines=20
@@ -83,10 +87,10 @@ goto :EOF
 :Input
 set "com[A]=Dx=-1"
 set "com[D]=Dx=1"
-set "com[S]=del=3"
+set "com[1]=del=3"
 set "com[W]=R=-1"
-set "com[3]=R=1"
-set "com[2]=R=-1"
+set "com[2]=R=1"
+set "com[3]=R=-1"
 set "com[S]=Dy=-1"
 set "com[Y]=Y"
 set "com[N]=N=1"
@@ -397,9 +401,8 @@ exit /B
 
 
 
-
 :guess
-color 0D
+color 05
 title Guessing Game
 :verytop
 cls
@@ -458,20 +461,20 @@ if %again%==n GOTO MENU
 
 
 :tictac
-REM By MacFromOK.  Cool tech site! [url]http://forums.techguy.org/[/url]
+color 72
 @ECHO OFF
 :BEGIN  
   REM Skill level
   set sl=
   cls
-  echo                       Tic Tac Toe by Mac                            (Q to quit)
+  echo                       Tic Tac Toe                            (Q to quit)
   echo.
   echo.
-  echo        Pick your skill level (press a number)
-  echo.
-  echo               (1) Children under 6
-  echo               (2) Average Mental Case
-  echo               (3) Oversized Ego  
+  echo        Pick your skill level (press a number) 
+  echo.      					      
+  echo       (1) Children under 6		      
+  echo       (2) Average Mental Case                 
+  echo       (3) Oversized Ego                       
   CHOICE /c:123q /n > nul
   if errorlevel 4 goto end
   if errorlevel 3 set sl=3
